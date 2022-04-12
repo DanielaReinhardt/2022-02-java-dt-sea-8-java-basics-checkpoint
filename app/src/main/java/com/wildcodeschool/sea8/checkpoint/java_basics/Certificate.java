@@ -1,6 +1,7 @@
 package com.wildcodeschool.sea8.checkpoint.java_basics;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Certificate implements IExpireable {
 
@@ -23,18 +24,29 @@ public class Certificate implements IExpireable {
 
     public void renew(long daysValidFromNow) {
         // TODO: renew certificate
+  
+        LocalDate.now().plusDays(daysValidFromNow);
     }
+         
 
     @Override
     public boolean isExpired() {
         // TODO: Provide the neccessary check here
-        return false;
+
+        // stimmt wohl
+        boolean isExpired = LocalDate.now().isAfter(this.validTo);
+        
+        return isExpired;
     }
 
     @Override
     public LocalDate expiryDate() {
-        // TODO: Return the expiration date
-        return null;
+        //TODO: Return the expiration date
+      
+       //bisschen zu kompliziert, aber ok
+        LocalDate expiryDate =this.validTo;
+        return expiryDate;
+        
     }
 
     @Override

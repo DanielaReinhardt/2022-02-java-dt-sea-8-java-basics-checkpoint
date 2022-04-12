@@ -29,7 +29,8 @@ public class ExpireablesLoader {
 
             for (String line : lines) {
                 // TODO: split the line at the right symbol instead of ""
-                String[] lineEntries = line.split("");
+                String[] lineEntries = line.split(",");
+               
 
                 if(lineEntries.length == 0) continue;
                 if(lineEntries[0].equalsIgnoreCase("Certificate")) {
@@ -37,12 +38,22 @@ public class ExpireablesLoader {
                     // array lineEntries might look like this:
                     // ["Certificate", "SEA 8 Checkpoint", "WCS", "2022-06-18"]
 
+                    ////Übersetzen der STring in lineEntries in certifikat
+                    //neue Instanz, z.b parse
+                   //objekt anlegen, ich Idiot
+                   database.addItem((IExpireable) lines);
+                 
+
 
 
                 } else if (lineEntries[0].equalsIgnoreCase("DairyProduct")) {
                     // TODO: load the dairy product and add it to the database
                     // array lineEntries might look like this:
                     // ["DairyProduct", "2022-03-15", "7"]
+
+                    //umwandeln des letzten Eintrags in einen String, damit der Loader das speichern kann
+                    //neue Instanz, z.b parse
+                    database.addItem(lineEntries);
 
 
 
